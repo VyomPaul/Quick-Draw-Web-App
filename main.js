@@ -18,3 +18,37 @@ var answer_holder = "";
 
 var score = 0;
 
+function updateCanvas() {
+    background("white");
+
+}
+
+function setup() {
+    var canvas = createCanvas(280, 280);
+    canvas.center();
+    background("white");
+}
+
+function draw() {
+    check_sketch();
+    if(drawn_sketch == sketch) {
+        var answer_holder = "set"
+        score++
+        document.getElementById('userScore').innerHTML('Score: ' + score)
+    }
+}
+
+function check_sketch() {
+    timer_counter++
+    document.getElementById('Timer' + timer_counter);
+    console.log(timer_counter);
+    if(timer_counter=401) {
+        timer_counter = 0;
+        timer_check = 'complete';
+    }
+    if(timer_check == 'complete' && answer_holder == 'set') {
+        timer_check = '';
+        answer_holder = '';
+        updateCanvas();
+    } 
+}
